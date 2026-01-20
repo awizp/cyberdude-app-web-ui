@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { QuoteIcon } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
@@ -30,12 +30,10 @@ export default function TestimonialSection() {
   const avatars = getAvatars();
 
   return (
-    
     <section className="bg-black  bg-linear-to-b from-gray-900 via-black to-black mt-10 mt-10">
       <div className="container mx-auto px-4 py-16">
-        
         <h2 className="text-center text-4xl font-semibold mb-16">
-           What People Think <span className="custom-gradient">About us</span>?
+          What People Think <span className="custom-gradient">About us</span>?
         </h2>
 
         <div className="relative mt-10 min-h-[180px] flex items-center justify-center">
@@ -80,7 +78,9 @@ export default function TestimonialSection() {
             return (
               <motion.button
                 key={t.id}
-                onClick={() => setCurrent(testimonials.findIndex((x) => x.id === t.id))}
+                onClick={() =>
+                  setCurrent(testimonials.findIndex((x) => x.id === t.id))
+                }
                 className="focus:outline-none"
                 whileHover={{ scale: 1.1 }}
                 animate={{
@@ -93,7 +93,11 @@ export default function TestimonialSection() {
                   src={t.avatar}
                   alt={t.name}
                   className={`rounded-full object-cover ${
-                    isCenter ? "w-[72px] h-[72px] ring-2 ring-orange-400" : isAdj ? "w-14 h-14" : "w-12 h-12"
+                    isCenter
+                      ? "w-[72px] h-[72px] ring-2 ring-orange-400"
+                      : isAdj
+                        ? "w-14 h-14"
+                        : "w-12 h-12"
                   }`}
                 />
               </motion.button>
@@ -108,7 +112,9 @@ export default function TestimonialSection() {
               key={i}
               onClick={() => setCurrent(i)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                i === current ? "bg-testimonial-accent w-6" : "bg-testimonial-subtle"
+                i === current
+                  ? "bg-testimonial-accent w-6"
+                  : "bg-testimonial-subtle"
               }`}
             />
           ))}
@@ -117,4 +123,3 @@ export default function TestimonialSection() {
     </section>
   );
 }
-

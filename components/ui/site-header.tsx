@@ -19,7 +19,7 @@ export default function SiteHeader() {
     <header className="w-full">
       <div className="container mx-auto py-5 flex justify-between items-center px-3">
         {/* company logo */}
-        <Link href={"/"} className="w-[180px] h-10">
+        <Link href={"/"} className="w-45 h-10">
           {" "}
           <img
             src="/img/logo.svg"
@@ -38,8 +38,9 @@ export default function SiteHeader() {
 
                   <ChevronDown
                     size={18}
-                    className={`ml-1 transition-transform duration-300  ${menuOpen ? "rotate-180" : "rotate-0"
-                      }`}
+                    className={`ml-1 transition-transform duration-300  ${
+                      menuOpen ? "rotate-180" : "rotate-0"
+                    }`}
                   />
                 </div>
 
@@ -136,7 +137,6 @@ export default function SiteHeader() {
           {navOpen ? (
             <div className="mobile-links z-30  p-4">
               <ul className="flex flex-col gap-6">
-
                 <li>
                   <div
                     onClick={toggleCompany}
@@ -145,8 +145,9 @@ export default function SiteHeader() {
                     <span className="font-medium">Company</span>
                     <ChevronDown
                       size={18}
-                      className={`transition-transform ${menuOpen ? "rotate-180" : ""
-                        }`}
+                      className={`transition-transform ${
+                        menuOpen ? "rotate-180" : ""
+                      }`}
                     />
                   </div>
 
@@ -163,17 +164,26 @@ export default function SiteHeader() {
                         </Link>
                       </li>
                       <li>
-                        <Link href="/experiment/company/impact" onClick={handleNavbar}>
+                        <Link
+                          href="/experiment/company/impact"
+                          onClick={handleNavbar}
+                        >
                           Impact
                         </Link>
                       </li>
                       <li>
-                        <Link href="/experiment/company/awards" onClick={handleNavbar}>
+                        <Link
+                          href="/experiment/company/awards"
+                          onClick={handleNavbar}
+                        >
                           Awards
                         </Link>
                       </li>
                       <li>
-                        <Link href="/experiment/company/partner" onClick={handleNavbar}>
+                        <Link
+                          href="/experiment/company/partner"
+                          onClick={handleNavbar}
+                        >
                           Partner
                         </Link>
                       </li>
