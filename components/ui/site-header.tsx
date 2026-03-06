@@ -53,12 +53,12 @@ export default function SiteHeader() {
                 </a>
               </li>
               <li>
-                <a
-                  href="#Recruiters"
+                <Link
+                  href="/experiment/recruiters"
                   className="hover:text-orange-500 transition-colors cursor-pointer duration-300"
                 >
                   Recruiters
-                </a>
+                </Link>
               </li>
               <li>
                 <Link
