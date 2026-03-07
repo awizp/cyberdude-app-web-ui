@@ -46,6 +46,21 @@ const socialLinks = [
   },
 ];
 
+const legalLinks = [
+  {
+    name: "Terms",
+    href: "/legal/terms",
+  },
+  {
+    name: "Privacy",
+    href: "/legal/privacy",
+  },
+  {
+    name: "Refund & Cancellation Policy",
+    href: "/legal/refund-cancellation",
+  },
+];
+
 export default function SiteFooter() {
   return (
     <footer className="bg-black text-gray-400">
@@ -156,14 +171,14 @@ export default function SiteFooter() {
             </p>
 
             <div className="flex gap-6">
-              {["Terms", "Privacy", "Compliances"].map((item) => (
-                <Link
-                  key={item}
-                  href="/"
+              {legalLinks.map(({ name, href }) => (
+                <a
+                  key={name}
+                  href={href}
                   className="transition hover:text-orange-500"
                 >
-                  {item}
-                </Link>
+                  {name}
+                </a>
               ))}
             </div>
           </div>

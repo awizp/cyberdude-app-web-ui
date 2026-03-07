@@ -33,7 +33,6 @@
       opacity: 0;
       transform: translateY(12px);
     }
-
     100% {
       opacity: 1;
       transform: translateY(0);
@@ -41,8 +40,48 @@
   }
 }
 
-@layer components {
+@layer base {
+  :root {
+    --background: 220 20% 4%;
+    --foreground: 210 40% 98%;
 
+    --card: 220 20% 8%;
+    --primary: 190 100% 50%;
+    --accent: 150 100% 50%;
+    --border: 220 20% 18%;
+
+    --cyber-orange: 25 100% 55%;
+    --cyber-purple: 280 100% 60%;
+
+    --gradient-cyber: linear-gradient(
+      135deg,
+      hsl(190 100% 50%),
+      hsl(280 100% 60%)
+    );
+    --gradient-reward: linear-gradient(
+      135deg,
+      hsl(150 100% 50%),
+      hsl(190 100% 50%)
+    );
+    --gradient-premium: linear-gradient(
+      135deg,
+      hsl(25 100% 55%),
+      hsl(330 100% 60%)
+    );
+  }
+
+  body {
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    @apply antialiased font-['Inter',sans-serif];
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
   /* Navigation */
   .desktop-links {
     @apply hidden items-center justify-center md:flex;
@@ -77,139 +116,171 @@
   .container_card {
     @apply space-y-5 rounded-xl border-2 border-orange-500 p-3 text-center transition hover:scale-[1.02];
   }
-}
 
-@layer base {
-  body {
-    @apply bg-background text-gray-300 font-inter antialiased;
-  }
+  /* ===== Pricing / Cyber UI ===== */
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-semibold tracking-tight;
-  }
-
-  code,
-  pre {
-    @apply font-jetbrains;
-  }
-}
-
-@layer components {
-
-  /* ---------- Glow Text ---------- */
+  /* Glow Text */
   .glow-text {
+    color: hsl(var(--primary));
     text-shadow:
-      0 0 10px hsl(190 100% 50% / 0.5),
-      0 0 40px hsl(190 100% 50% / 0.3);
+      0 0 10px hsl(var(--primary) / 0.5),
+      0 0 40px hsl(var(--primary) / 0.3);
   }
 
   .glow-text-green {
+    color: hsl(var(--accent));
     text-shadow:
-      0 0 10px hsl(150 100% 50% / 0.5),
-      0 0 40px hsl(150 100% 50% / 0.3);
+      0 0 10px hsl(var(--accent) / 0.5),
+      0 0 40px hsl(var(--accent) / 0.3);
   }
 
   .glow-text-orange {
+    color: hsl(var(--cyber-orange));
     text-shadow:
-      0 0 10px hsl(25 100% 55% / 0.5),
-      0 0 40px hsl(25 100% 55% / 0.3);
+      0 0 10px hsl(var(--cyber-orange) / 0.5),
+      0 0 40px hsl(var(--cyber-orange) / 0.3);
   }
 
-  /* ---------- Glow Boxes ---------- */
+  /* Glow Boxes */
   .glow-box {
     box-shadow:
-      0 0 20px hsl(190 100% 50% / 0.3),
-      0 0 60px hsl(190 100% 50% / 0.1);
+      0 0 20px hsl(var(--primary) / 0.3),
+      0 0 60px hsl(var(--primary) / 0.1);
   }
 
   .glow-box-green {
     box-shadow:
-      0 0 20px hsl(150 100% 50% / 0.3),
-      0 0 60px hsl(150 100% 50% / 0.1);
+      0 0 20px hsl(var(--accent) / 0.3),
+      0 0 60px hsl(var(--accent) / 0.1);
   }
 
   .glow-box-orange {
     box-shadow:
-      0 0 20px hsl(25 100% 55% / 0.3),
-      0 0 60px hsl(25 100% 55% / 0.1);
+      0 0 20px hsl(var(--cyber-orange) / 0.3),
+      0 0 60px hsl(var(--cyber-orange) / 0.1);
   }
 
-  /* ---------- Cyber Border ---------- */
+  /* Cyber Border */
   .cyber-border {
-    position: relative;
-    border-radius: var(--radius-lg);
-    border: 1px solid hsl(190 100% 50% / 0.3);
+    @apply relative border;
+    border-color: hsl(var(--primary) / 0.3);
   }
 
   .cyber-border::before {
     content: "";
     position: absolute;
     inset: -1px;
-    background: linear-gradient(135deg,
-        hsl(190 100% 50% / 0.6),
-        transparent,
-        hsl(280 100% 60% / 0.6));
     z-index: -1;
     border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary) / 0.5),
+      transparent,
+      hsl(var(--cyber-purple) / 0.5)
+    );
   }
 
-  /* ---------- Gradient Text ---------- */
+  /* Gradient Text */
   .gradient-text {
-    background: linear-gradient(135deg, hsl(190 100% 50%), hsl(280 100% 60%));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    background: var(--gradient-cyber);
+    @apply bg-clip-text text-transparent;
   }
 
   .gradient-text-reward {
-    background: linear-gradient(135deg, hsl(150 100% 50%), hsl(190 100% 50%));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    background: var(--gradient-reward);
+    @apply bg-clip-text text-transparent;
   }
 
   .gradient-text-premium {
-    background: linear-gradient(135deg, hsl(25 100% 55%), hsl(330 100% 60%));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    background: var(--gradient-premium);
+    @apply bg-clip-text text-transparent;
   }
 
-  /* ---------- Cards ---------- */
+  /* Hover Card */
   .card-hover {
     @apply transition-all duration-300;
   }
 
   .card-hover:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 40px hsl(190 100% 50% / 0.2);
+    box-shadow: 0 10px 40px hsl(var(--primary) / 0.2);
   }
 
-  /* ---------- Grid Pattern ---------- */
+  /* Grid Pattern */
   .grid-pattern {
     background-image:
-      linear-gradient(hsl(190 100% 50% / 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(190 100% 50% / 0.04) 1px, transparent 1px);
+      linear-gradient(hsl(var(--primary) / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.03) 1px, transparent 1px);
     background-size: 50px 50px;
   }
 
-  /* ---------- Scanlines ---------- */
+  /* Scanline */
   .scanline {
-    position: relative;
-    overflow: hidden;
+    @apply relative overflow-hidden;
   }
 
   .scanline::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(transparent 50%, hsl(190 100% 50% / 0.03) 50%);
-    background-size: 100% 4px;
     pointer-events: none;
+    background: linear-gradient(
+      transparent 50%,
+      hsl(var(--primary) / 0.02) 50%
+    );
+    background-size: 100% 4px;
   }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-gradient {
+    animation: gradient-shift 8s ease infinite;
+    background-size: 200% 200%;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    }
+    50% {
+      box-shadow:
+        0 0 40px hsl(var(--primary) / 0.5),
+        0 0 60px hsl(var(--primary) / 0.3);
+    }
+  }
+
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }
