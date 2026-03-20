@@ -38,9 +38,8 @@ export default function SiteHeader() {
 
                   <ChevronDown
                     size={18}
-                    className={`ml-1 transition-transform duration-300  ${
-                      menuOpen ? "rotate-180" : "rotate-0"
-                    }`}
+                    className={`ml-1 transition-transform duration-300  ${menuOpen ? "rotate-180" : "rotate-0"
+                      }`}
                   />
                 </div>
 
@@ -99,16 +98,8 @@ export default function SiteHeader() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="#Learners"
-                  className="hover:text-orange-500 transition-colors cursor-pointer duration-300"
-                >
-                  Learners
-                </a>
-              </li>
-              <li>
                 <Link
-                  href="/experiment/recruiters"
+                  href="/recruiters"
                   className="hover:text-orange-500 transition-colors cursor-pointer duration-300"
                 >
                   Recruiters
@@ -145,7 +136,7 @@ export default function SiteHeader() {
           {navOpen ? (
             <div className="mobile-links z-30  p-4">
               <ul className="flex flex-col gap-6">
-              
+
                 <li>
                   <div
                     onClick={toggleCompany}
@@ -154,9 +145,8 @@ export default function SiteHeader() {
                     <span className="font-medium">Company</span>
                     <ChevronDown
                       size={18}
-                      className={`transition-transform ${
-                        menuOpen ? "rotate-180" : ""
-                      }`}
+                      className={`transition-transform ${menuOpen ? "rotate-180" : ""
+                        }`}
                     />
                   </div>
 
