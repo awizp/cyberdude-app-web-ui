@@ -9,9 +9,9 @@ const items = [
 
 const CollaborationSection = () => {
     return (
-        <section className="py-24 px-6 md:px-12">
+        <section className="py-15 px-6 md:px-12  bg-zinc-900/30">
             <div className="max-w-5xl mx-auto">
-                <p className="text-orange-500 text-xs font-semibold tracking-[0.3em] uppercase mb-4">07 — Strategic Collaboration</p>
+                <p className="text-orange-500 text-xs font-semibold tracking-[0.3em] uppercase mb-4">06 — Strategic Collaboration</p>
                 <div className="line-accent mb-6" />
                 <h2 className="text-2xl md:text-3xl font-bold mb-3">
                     Shape the <span className="custom-gradient">Talent Pipeline</span>

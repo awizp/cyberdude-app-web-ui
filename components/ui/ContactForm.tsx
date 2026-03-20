@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import type { Persona } from "./PersonaSelector";
+import type { Persona } from "@/components/ui/PersonaSelector";
 import FormField from "./FormField";
 
 interface ContactFormProps {

@@ -5,9 +5,8 @@ const PricingSection = () => {
   return (
     <section id="pricing" className="py-24 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-linear-to-b from-background via-cyber-purple/5 to-background" />
-      <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-cyber-purple/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-cyber-pink/10 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-linear-to-br from-orange-500/4 via-transparent to-transparent" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-full bg-orange-500/3 blur-[120px]" />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
@@ -26,13 +25,13 @@ const PricingSection = () => {
         </div>
 
         {/* Value Highlights */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-28">
           {valueHighlights.map((item, index) => (
             <div
               key={index}
-              className="p-4 rounded-xl bg-card border border-gray-800 text-center card-hover"
+              className="p-4 rounded-xl bg-card border border-gray-800 text-center hover:scale-105 transition hover:shadow-orange-500/40 hover:shadow-md cursor-default hover:border-orange-500"
             >
-              <item.icon className="w-6 h-6 text-primary mx-auto mb-2" />
+              <item.icon className="w-6 h-6 text-orange-500 mx-auto mb-2" />
               <div className="font-display text-2xl font-bold text-foreground">
                 {item.value}
               </div>
@@ -46,9 +45,8 @@ const PricingSection = () => {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative p-8 rounded-2xl bg-card border border-gray-800 transition-all duration-300 card-hover  ${
-                plan.popular ? "border-cyber-orange glow-box-orange" : ""
-              }`}
+              className={`relative p-8 rounded-2xl border border-gray-800 transition-all duration-300 hover:scale-101 hover:shadow-orange-500 hover:shadow-xs hover:border-orange-500  ${plan.popular ? "border-orange-500 shadow shadow-orange-500 scale-102" : ""
+                }`}
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full theme-gradient text-black text-sm font-semibold">
@@ -57,7 +55,7 @@ const PricingSection = () => {
               )}
 
               <div
-                className={`w-14 h-14 rounded-xl bg-linear-to-br ${plan.gradient} flex items-center justify-center mb-6`}
+                className={`w-14 h-14 rounded-xl bg-orange-500 ${plan.gradient} flex items-center justify-center mb-6`}
               >
                 <plan.icon className="w-7 h-7 text-white" />
               </div>
@@ -103,11 +101,10 @@ const PricingSection = () => {
               </ul>
 
               <button
-                className={`w-full  ${
-                  plan.popular
-                    ? "flex justify-center items-center theme-gradient  text-black hover:shadow-[0_0_30px_hsl(25,100%,55%,0.5)] hover:scale-105 h-14 rounded-lg px-10 text-base"
-                    : "bg-linear-to-r flex justify-center items-center theme-gradient text-black hover:shadow-[0_0_30px_hsl(25,100%,55%,0.5)] hover:scale-105 h-14 rounded-lg px-10 text-base"
-                }`}
+                className={`w-full  ${plan.popular
+                  ? "flex justify-center items-center theme-gradient  text-black hover:shadow-[0_0_30px_hsl(25,100%,55%,0.5)] hover:scale-105 h-14 rounded-lg px-10 text-base"
+                  : "bg-linear-to-r flex justify-center items-center theme-gradient text-black hover:shadow-[0_0_30px_hsl(25,100%,55%,0.5)] hover:scale-105 h-14 rounded-lg px-10 text-base"
+                  }`}
               >
                 {plan.cta} <ArrowRight className=" " />
               </button>

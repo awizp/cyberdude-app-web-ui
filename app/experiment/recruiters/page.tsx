@@ -1,6 +1,6 @@
-import HeroSection from "@/app/experiment/recruiters/components/HeroSection";
+import RecruitersHero from "@/app/experiment/recruiters/components/RecruitersHero";
 import OrganizationSection from "@/app/experiment/recruiters/components/OrganizationSection";
-import RecruiterAccessSection from "@/app/experiment/recruiters/components/RecruiterAccessSection";
+// import RecruiterAccessSection from "@/app/experiment/recruiters/components/RecruiterAccessSection";
 import RecruitmentProcessSection from "@/app/experiment/recruiters/components/RecruitmentProcessSection";
 import SkillDNASection from "@/app/experiment/recruiters/components/SkillDNASection";
 import ProjectGallerySection from "@/app/experiment/recruiters/components/ProjectGallerySection";
@@ -15,11 +15,11 @@ const Recruiters = () => {
     return (
         <div className="min-h-screen bg-background">
             <SiteHeader />
-            <HeroSection />
+            <RecruitersHero />
             <OrganizationSection />
-            <RecruiterAccessSection />
-            <RecruitmentProcessSection />
             <SkillDNASection />
+            {/* <RecruiterAccessSection /> */}
+            <RecruitmentProcessSection />
             <ProjectGallerySection />
             <CareerEventsSection />
             <CollaborationSection />

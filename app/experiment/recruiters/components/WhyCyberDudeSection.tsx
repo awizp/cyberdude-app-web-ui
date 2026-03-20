@@ -2,7 +2,7 @@ import { ArrowRight, Calendar } from "lucide-react";
 
 const WhyCyberDudeSection = () => {
   return (
-    <section className="py-28 px-6 md:px-12 border-y border-zinc-600/30">
+    <section className="py-15 px-6 md:px-12">
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-3xl md:text-5xl font-bold mb-3">
           Build Your <span className="custom-gradient">Verified Pipeline</span>
@@ -14,7 +14,7 @@ const WhyCyberDudeSection = () => {
           Replace guesswork with performance intelligence.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-16">
           <button className="group flex items-center gap-2.5 px-8 py-3.5 bg-orange-500 text-primary-foreground font-semibold text-sm rounded-xl glow-primary hover:brightness-110 transition-all duration-300 cursor-pointer">
             Request Recruiter Access
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />

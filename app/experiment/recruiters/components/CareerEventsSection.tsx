@@ -8,9 +8,9 @@ const events = [
 
 const CareerEventsSection = () => {
     return (
-        <section className="py-24 px-6 md:px-12 bg-zinc-950/30">
+        <section className="py-15 px-6 md:px-12">
             <div className="max-w-5xl mx-auto">
-                <p className="text-orange-500 text-xs font-semibold tracking-[0.3em] uppercase mb-4">06 — Hiring Events</p>
+                <p className="text-orange-500 text-xs font-semibold tracking-[0.3em] uppercase mb-4">05 — Hiring Events</p>
                 <div className="line-accent mb-6" />
                 <h2 className="text-2xl md:text-3xl font-bold mb-3">
                     Engage with <span className="custom-gradient">Top Performers</span>

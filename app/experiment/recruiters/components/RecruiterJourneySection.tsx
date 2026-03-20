@@ -10,7 +10,10 @@ const steps = [
 
 const RecruiterJourneySection = () => {
   return (
-    <section className="py-24 px-6 md:px-12 bg-orange-500/50">
+    <section className="py-24 px-6 md:px-12 relative">
+      <div className="absolute inset-0 bg-linear-to-br from-orange-500/4 via-transparent to-transparent" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-full bg-orange-500/3 blur-[120px]" />
+
       <div className="max-w-5xl mx-auto">
         <p className="text-orange-500 text-xs font-semibold tracking-[0.3em] uppercase mb-4">
           The Journey

@@ -1,15 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import PersonaSelector, {
-  type Persona,
-} from "@/app/contact/components/PersonaSelector";
-import ContactForm from "@/app/contact/components/ContactForm";
+import PersonaSelector, { type Persona } from "@/components/ui/PersonaSelector";
+import ContactForm from "@/components/ui/ContactForm";
+import GeneralForm from "@/components/ui/GeneralForm";
 
 import SiteHeader from "@/components/ui/site-header";
 import SiteFooter from "@/components/ui/site-footer";
 
 const Contact = () => {
+  const [queryType, setQueryType] = useState<"general" | "specific">("general");
   const [selectedPersona, setSelectedPersona] = useState<Persona>("student");
 
   return (
@@ -36,36 +36,79 @@ const Contact = () => {
             </p>
           </header>
 
-          {/* Persona Selection */}
+          {/* Query buttons to choose form */}
           <section className="mb-10">
-            <p className="text-sm font-display font-semibold tracking-widest uppercase  text-orange-500 mb-4 text-center">
-              Select your role
-            </p>
-            <PersonaSelector
-              selected={selectedPersona}
-              onSelect={setSelectedPersona}
-            />
+            <div className="flex justify-center gap-3">
+              <button
+                onClick={() => setQueryType("general")}
+                className={`px-6 py-3 rounded-lg text-sm font-display font-semibold transition-all duration-300 cursor-pointer ${queryType === "general"
+                  ? "bg-orange-500 text-primary-foreground glow-orange"
+                  : "border border-border bg-card text-foreground hover:border-orange-500/40 hover:bg-secondary"
+                  }`}
+              >
+                General Inquiry
+              </button>
+              <button
+                onClick={() => setQueryType("specific")}
+                className={`px-6 py-3 rounded-lg text-sm font-display font-semibold transition-all duration-300 cursor-pointer ${queryType === "specific"
+                  ? "bg-orange-500 text-primary-foreground glow-orange"
+                  : "border border-border bg-card text-foreground hover:border-orange-500/40 hover:bg-secondary"
+                  }`}
+              >
+                Specific Query
+              </button>
+            </div>
           </section>
 
-          {/* Dynamic Form */}
-          {selectedPersona && (
+          {/* General Form */}
+          {queryType === "general" && (
             <section
-              key={selectedPersona}
+              key="general"
               className="rounded-xl border border-border bg-card p-6 sm:p-8 glow-orange animate-fade-in-up"
             >
               <div className="mb-6 flex items-center gap-3 border-b border-border pb-4">
-                <div className="h-2 w-2 rounded-full bg-orange-500 animate-pulse" />
+                <div className="h-2 w-2 rounded-full bg-orange-500" />
                 <h2 className="text-lg font-display font-semibold text-foreground">
-                  {selectedPersona === "student" && "Student / Learner Inquiry"}
-                  {selectedPersona === "recruiter" && "Recruiter Inquiry"}
-                  {selectedPersona === "organization" && "Organization Inquiry"}
-                  {selectedPersona === "mentor" && "Mentor Application"}
-                  {selectedPersona === "guardian" && "Guardian Access"}
+                  General Inquiry
                 </h2>
               </div>
-              <ContactForm persona={selectedPersona} />
+              <GeneralForm />
             </section>
           )}
+
+          {/* Persona Selection */}
+          {queryType === "specific" && (
+            <>
+              <section className="mb-10">
+                <p className="text-sm font-display font-semibold tracking-widest uppercase  text-orange-500 mb-4 text-center">
+                  Select your role
+                </p>
+                <PersonaSelector
+                  selected={selectedPersona}
+                  onSelect={setSelectedPersona}
+                />
+              </section>
+
+              {/* Dynamic Form */}
+              {selectedPersona && (
+                <section
+                  key={selectedPersona}
+                  className="rounded-xl border border-border bg-card p-6 sm:p-8 glow-orange animate-fade-in-up"
+                >
+                  <div className="mb-6 flex items-center gap-3 border-b border-border pb-4">
+                    <div className="h-2 w-2 rounded-full bg-orange-500 animate-pulse" />
+                    <h2 className="text-lg font-display font-semibold text-foreground">
+                      {selectedPersona === "student" && "Student / Learner Inquiry"}
+                      {selectedPersona === "recruiter" && "Recruiter Inquiry"}
+                      {selectedPersona === "organization" && "Organization Inquiry"}
+                      {selectedPersona === "mentor" && "Mentor Application"}
+                      {selectedPersona === "guardian" && "Guardian Access"}
+                    </h2>
+                  </div>
+                  <ContactForm persona={selectedPersona} />
+                </section>
+              )}
+            </>)}
 
           {/* World Map */}
           <section className="mt-16 mb-8">

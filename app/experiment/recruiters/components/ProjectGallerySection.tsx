@@ -9,9 +9,9 @@ const items = [
 
 const ProjectGallerySection = () => {
     return (
-        <section className="py-24 px-6 md:px-12">
+        <section className="py-15 px-6 md:px-12  bg-zinc-900/30">
             <div className="max-w-5xl mx-auto">
-                <p className="text-orange-500 text-xs font-semibold tracking-[0.3em] uppercase mb-4">05 — Project Evidence</p>
+                <p className="text-orange-500 text-xs font-semibold tracking-[0.3em] uppercase mb-4">04 — Project Evidence</p>
                 <div className="line-accent mb-6" />
                 <h2 className="text-2xl md:text-3xl font-bold mb-3">
                     Real Work. <span className="custom-gradient">Real Thinking.</span>
