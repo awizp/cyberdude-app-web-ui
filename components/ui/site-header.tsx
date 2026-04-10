@@ -63,7 +63,7 @@ export default function SiteHeader() {
                     </li>
                     <li>
                       <Link
-                        href="/company#impact"
+                        href="/experiment/company/impact"
                         className="block px-4 py-2 hover:bg-orange-100 hover:text-orange-500 transition"
                       >
                         Impact
@@ -71,7 +71,7 @@ export default function SiteHeader() {
                     </li>
                     <li>
                       <Link
-                        href="/company#awards"
+                        href="/experiment/company/awards"
                         className="block px-4 py-2 hover:bg-orange-100 hover:text-orange-500 transition cursor-pointer"
                       >
                         Awards
@@ -80,7 +80,7 @@ export default function SiteHeader() {
 
                     <li>
                       <Link
-                        href="/company#partner"
+                        href="/experiment/company/partner"
                         className="block px-4 py-2 hover:bg-orange-100 hover:text-orange-500 transition"
                       >
                         Partner
@@ -163,17 +163,17 @@ export default function SiteHeader() {
                         </Link>
                       </li>
                       <li>
-                        <Link href="/company#impact" onClick={handleNavbar}>
+                        <Link href="/experiment/company/impact" onClick={handleNavbar}>
                           Impact
                         </Link>
                       </li>
                       <li>
-                        <Link href="/company#awards" onClick={handleNavbar}>
+                        <Link href="/experiment/company/awards" onClick={handleNavbar}>
                           Awards
                         </Link>
                       </li>
                       <li>
-                        <Link href="/company#partner" onClick={handleNavbar}>
+                        <Link href="/experiment/company/partner" onClick={handleNavbar}>
                           Partner
                         </Link>
                       </li>

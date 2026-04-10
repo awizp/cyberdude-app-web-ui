@@ -101,11 +101,11 @@
 
   /* Text Gradients */
   .custom-gradient {
-    @apply bg-gradient-to-r from-orange-300 via-amber-400 to-orange-600 bg-clip-text text-transparent;
+    @apply bg-linear-to-r from-orange-300 via-amber-400 to-orange-600 bg-clip-text text-transparent;
   }
 
   .theme-gradient {
-    @apply bg-gradient-to-r from-orange-300 via-amber-400 to-orange-600;
+    @apply bg-linear-to-r from-orange-300 via-amber-400 to-orange-600;
   }
 
   /* Cards & Chips */
@@ -131,5 +131,31 @@
   code,
   pre {
     @apply font-jetbrains;
+  }
+
+  /* ===== Impact Page Effects ===== */
+  .impact-shimmer {
+    background-size: 200% auto;
+    animation: impact-shimmer-sweep 4s ease-in-out infinite;
+  }
+
+  .impact-card-glow {
+    transition: box-shadow 0.5s ease;
+  }
+
+  .impact-card-glow:hover {
+    box-shadow:
+      0 0 30px -5px rgba(234, 88, 12, 0.08),
+      0 0 60px -10px rgba(234, 88, 12, 0.04);
+  }
+}
+
+@keyframes impact-shimmer-sweep {
+  0%,
+  100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 200% center;
   }
 }

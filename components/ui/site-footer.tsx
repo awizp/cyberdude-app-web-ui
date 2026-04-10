@@ -63,7 +63,7 @@ const legalLinks = [
 
 export default function SiteFooter() {
   return (
-    <footer className="bg-black text-gray-400">
+    <footer className="bg-black text-gray-400  drop-shadow-2xl backdrop-blur-2xl drop-shadow-orange-500">
       <div className="mx-auto">
         <div className="mx-auto max-w-7xl px-6 py-16">
           {/* Main Footer Content */}
