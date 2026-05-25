@@ -117,12 +117,12 @@ export default function SiteHeader() {
           </div>
 
           {/* get started button */}
-          <a
-            href="#"
+          <Link
+            href="/experiment/get-started"
             className="hidden md:flex w-full ml-5 px-4 py-2 rounded-full bg-linear-to-r from-orange-300  to-orange-500 text-black font-medium hover:from-orange-400 hover:to-orange-500 transition-colors duration-300 justify-center items-center"
           >
             Get Started!
-          </a>
+          </Link>
 
           {/* hamburger menu button */}
           <div
