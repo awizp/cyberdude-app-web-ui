@@ -3,11 +3,13 @@
 import { Menu, ChevronDown, X } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function SiteHeader() {
   const [navOpen, setNavOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const pathname = usePathname();
   const handleNavbar = () => {
     setNavOpen(!navOpen);
   };
@@ -16,7 +18,7 @@ export default function SiteHeader() {
     setMenuOpen(!menuOpen);
   };
   return (
-    <header className="w-full">
+    <header className="w-full relative bg-black text-white">
       <div className="container mx-auto py-5 flex justify-between items-center px-3">
         {/* company logo */}
         <Link href={"/"} className="w-45 h-10">
@@ -30,7 +32,7 @@ export default function SiteHeader() {
 
         <div className="flex gap-3 items-center justify-between">
           {/* desktop navigation links */}
-          <div className="desktop-links">
+          <nav className="desktop-links">
             <ul className="flex flex-col md:flex-row   gap-10 items-start md:items-center justify-center">
               <li className="relative" onClick={toggleCompany}>
                 <div className="hover:text-orange-500  transition-colors duration-300 flex items-center cursor-pointer">
@@ -44,11 +46,12 @@ export default function SiteHeader() {
                   />
                 </div>
 
+                {/* Company Dropdown Menu */}
                 {menuOpen && (
                   <ul className="absolute left-0 mt-2 border bg-black  shadow-lg rounded-md w-44 py-2 z-30  ">
                     <li>
                       <Link
-                        href="/company#about"
+                        href="/experiment/company/about"
                         className="block px-4 py-2 hover:bg-orange-200 hover:text-orange-500 transition"
                       >
                         About
@@ -56,10 +59,10 @@ export default function SiteHeader() {
                     </li>
                     <li>
                       <Link
-                        href="/company#mission"
+                        href="/experiment/company/mission&vision"
                         className="block px-4 py-2 hover:bg-orange-100 hover:text-orange-500 transition"
                       >
-                        Mission &Vision
+                        Mission & Vision
                       </Link>
                     </li>
                     <li>
@@ -78,7 +81,6 @@ export default function SiteHeader() {
                         Awards
                       </Link>
                     </li>
-
                     <li>
                       <Link
                         href="/company/partner"
@@ -115,7 +117,7 @@ export default function SiteHeader() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </nav>
 
           {/* get started button */}
           <Link
@@ -154,12 +156,18 @@ export default function SiteHeader() {
                   {menuOpen && (
                     <ul className="pl-4 mt-3 space-y-3">
                       <li>
-                        <Link href="/company#about" onClick={handleNavbar}>
+                        <Link
+                          href="/experiment/company/about"
+                          onClick={handleNavbar}
+                        >
                           About
                         </Link>
                       </li>
                       <li>
-                        <Link href="/company#mission" onClick={handleNavbar}>
+                        <Link
+                          href="/experiment/company/mission&vision"
+                          onClick={handleNavbar}
+                        >
                           Mission & Vision
                         </Link>
                       </li>

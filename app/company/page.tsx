@@ -1,20 +1,18 @@
-import Aboutsection from "../experiment/company/Aboutsection/page";
 import Awards from "./awards/page";
 import Impact from "./impact/page";
-import Missionsection from "../experiment/company/MissonSection/page";
+import Missionsection from "./mission-section";
 import Partner from "./partner/page";
 import SiteHeader from "@/components/ui/site-header";
-import SiteFooter from "@/components/ui/site-footer"
-
+import SiteFooter from "@/components/ui/site-footer";
 
 function page() {
   return (
     <div>
       <SiteHeader />
 
-      <section id="about">
+      {/* <section id="about">
         <Aboutsection />
-      </section>
+      </section> */}
 
       <section id="awards">
         <Awards />
